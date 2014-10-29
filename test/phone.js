@@ -18,10 +18,18 @@ describe('Phone', function () {
 
   });
 
+  describe('#strip', function () {
+
+    it('removes all non-numeric characters', function () {
+      expect(new Phone('212-555-1234').strip()).to.equal('2125551234');
+    });
+
+  });
+
   describe('#isE164', function () {
 
     it('requires a plus', function () {
-      expect(phone).isE164()).to.be.false;
+      expect(phone.isE164()).to.be.false;
       expect(new Phone('+12125551234').isE164()).to.be.true;
     });
 
@@ -35,6 +43,18 @@ describe('Phone', function () {
 
     it('cannot be longer than 15 digits', function () {
       expect(new Phone('+1212555123456789'))
+    });
+
+  });
+
+  describe('#toE164', function () {
+
+    it('can format US numbers', function () {
+      expect(phone.toE164()).to.equal('+12125551234');
+    });
+
+    it('can format international numbers', function () {
+      expect(new Phone('310112233444').toE164()).to.equal('+310112233444');
     });
 
   });
