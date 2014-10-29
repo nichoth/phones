@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/bendrucker/phones/issues"
   },
-  "homepage": "https://github.com/bendrucker/phones"
+  "homepage": "https://github.com/bendrucker/phones",
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "istanbul": "~0.3.2",
+    "mocha": "^2.0.1"
+  }
 }
