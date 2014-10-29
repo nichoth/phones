@@ -1,0 +1,24 @@
+{
+  "name": "phones",
+  "version": "1.0.0",
+  "description": "JS library for parsing and formatting phone numbers",
+  "main": "./src",
+  "scripts": {
+    "test": "istanbul cover node_modules/.bin/_mocha -- ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bendrucker/phones.git"
+  },
+  "keywords": [
+    "phone",
+    "number",
+    "international"
+  ],
+  "author": "Ben Drucker <bvdrucker@gmail.com> (http://www.bendrucker.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bendrucker/phones/issues"
+  },
+  "homepage": "https://github.com/bendrucker/phones"
+}
