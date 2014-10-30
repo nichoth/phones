@@ -59,6 +59,16 @@ describe('Phone', function () {
 
   });
 
+  describe('#format', function () {
+
+    it('can format US numbers', function () {
+      expect(phone.format('999-999-9999')).to.equal('212-555-1234');
+      expect(phone.format('(999) 999-9999')).to.equal('(212) 555-1234');
+      expect(new Phone(phone.toE164()).format('999-999-9999')).to.equal('212-555-1234');
+    });
+
+  });
+
   describe('#toString', function () {
     it('returns the phone as e164', function () {
       expect(phone.toString()).to.equal('+12125551234');
