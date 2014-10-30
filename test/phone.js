@@ -59,4 +59,10 @@ describe('Phone', function () {
 
   });
 
+  describe('#toString', function () {
+    it('returns the phone as e164', function () {
+      expect(phone.toString()).to.equal('+12125551234');
+    });
+  });
+
 });

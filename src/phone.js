@@ -22,4 +22,8 @@ Phone.prototype.toE164 = function () {
   }
 };
 
+Phone.prototype.toString = function () {
+  return this.toE164();
+};
+
 module.exports = Phone;
