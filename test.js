@@ -1,78 +1,25 @@
-'use strict';
+'use strict'
 
-var expect = require('chai').expect;
-var Phone  = require('../src/phone');
+var test = require('tape')
+var phone = require('./')
 
-describe('Phone', function () {
+test('parse', function (t) {
+  var parse = phone.parse
+  t.equal(parse('415-555-1234'), '4155551234')
+  t.equal(parse('+1-415-555-1234'), '4155551234')
+  t.end()
+})
 
-  var phone;
-  beforeEach(function () {
-    phone = new Phone('2125551234');
-  });
+test('format', function (t) {
+  var format = phone.format
+  t.equal(format('4155551234'), '415 555 1234')
+  t.equal(format('4155551234', '-'), '415-555-1234')
+  t.end()
+})
 
-  describe('Constructor', function () {
-
-    it('stores the raw input', function () {
-      expect(phone.raw).to.equal('2125551234');
-    });
-
-  });
-
-  describe('#strip', function () {
-
-    it('removes all non-numeric characters', function () {
-      expect(new Phone('212-555-1234').strip()).to.equal('2125551234');
-    });
-
-  });
-
-  describe('#isE164', function () {
-
-    it('requires a plus', function () {
-      expect(phone.isE164()).to.be.false;
-      expect(new Phone('+12125551234').isE164()).to.be.true;
-    });
-
-    it('cannot have non numeric characters after the plus', function () {
-      expect(new Phone('+1 212'));
-    });
-
-    it('cannot be shorter than 10 digits', function () {
-      expect(new Phone('+1212').isE164()).to.be.false;
-    });
-
-    it('cannot be longer than 15 digits', function () {
-      expect(new Phone('+1212555123456789'))
-    });
-
-  });
-
-  describe('#toE164', function () {
-
-    it('can format US numbers', function () {
-      expect(phone.toE164()).to.equal('+12125551234');
-    });
-
-    it('can format international numbers', function () {
-      expect(new Phone('310112233444').toE164()).to.equal('+310112233444');
-    });
-
-  });
-
-  describe('#format', function () {
-
-    it('can format US numbers', function () {
-      expect(phone.format('999-999-9999')).to.equal('212-555-1234');
-      expect(phone.format('(999) 999-9999')).to.equal('(212) 555-1234');
-      expect(new Phone(phone.toE164()).format('999-999-9999')).to.equal('212-555-1234');
-    });
-
-  });
-
-  describe('#toString', function () {
-    it('returns the phone as e164', function () {
-      expect(phone.toString()).to.equal('+12125551234');
-    });
-  });
-
-});
+test('validate', function (t) {
+  var validate = phone.validate
+  t.ok(validate('4155551234'))
+  t.notOk(validate('415-555-1235'))
+  t.end()
+})

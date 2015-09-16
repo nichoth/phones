@@ -1,50 +1,18 @@
-'use strict';
+'use strict'
 
-function Phone (raw) {
-  this.raw = raw;
+var separate = require('separate')
+
+exports.parse = parse
+function parse (phone) {
+  phone = phone.replace(/\D/g, '')
+  return phone.charAt(0) === '1' ? phone.substring(1, phone.length) : phone
 }
 
-Phone.prototype.strip = function () {
-  return this.raw.replace(/\D/g, '');
-};
+exports.format = function format (phone, separator) {
+  separator = separator == null ? ' ' : separator
+  return separate(phone, separator, [3, 6])
+}
 
-Phone.prototype.isE164 = function () {
-  return /^\+\d{10,15}$/.test(this.raw);
-};
-
-Phone.prototype.toE164 = function () {
-  var stripped = this.strip();
-  if (stripped.length === 10) {
-    return '+1' + stripped;
-  }
-  else {
-    return '+' + stripped;
-  }
-};
-
-Phone.prototype.format = function (template) {
-  var stripped = this.strip();
-  if (stripped.length === 11 && this.isE164() && stripped[0] === '1') {
-    stripped = stripped.substring(1);
-  } 
-  var formatted = '';
-  var numberPos = 0;
-  var templatePos = 0;
-  for (templatePos; templatePos < template.length; templatePos++) {
-    var templateCharacter = template[templatePos];
-    if (templateCharacter === '9') {
-      formatted += stripped[numberPos];
-      numberPos++;
-    }
-    else {
-      formatted += templateCharacter
-    }
-  }
-  return formatted;
-};
-
-Phone.prototype.toString = function () {
-  return this.toE164();
-};
-
-module.exports = Phone;
+exports.validate = function validate (phone) {
+  return /\d{10}/.test(phone)
+}
