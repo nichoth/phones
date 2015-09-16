@@ -1,12 +1,3 @@
 language: node_js
 node_js:
-- '0.10'
-deploy:
-  provider: npm
-  email: bvdrucker@gmail.com
-  api_key:
-    secure: ULrQTVB+Mg8Nlq6VnU6F/uZGmZm7e/i2tbNP3/nKB98P+M1BRrTnU5N4+B3WqoaxNv00hD9Hf8EeVpVzD+SjYPaj2O/mM8VE1WTcWQn2OPMoWvYvXOdgi2LscsQH3U7WCwgYPgP9zyHDINbE0X8U7l0vmdfjlFiFfJvW7HyVA+s=
-  on:
-    tags: true
-    repo: bendrucker/phones
-    all_branches: true
+- '4.0'
