@@ -14,6 +14,11 @@ test('format', function (t) {
   var format = phone.format
   t.equal(format('4155551234'), '415 555 1234')
   t.equal(format('4155551234', '-'), '415-555-1234')
+
+  t.equal(format('4155551234999'), '415 555 1234', 'truncate')
+  t.equal(format('14155551234'), '1 415 555 1234', 'country code')
+  t.equal(format('14155551234999'), '1 415 555 1234', 'country code + truncate')
+
   t.end()
 })
 

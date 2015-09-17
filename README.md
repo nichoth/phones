@@ -38,7 +38,7 @@ A phone number to parse. A leading `1` country code will be stripped.
 
 #### `phones.format(phone, [separator])` -> `string`
 
-Format a 10 digit phone string by adding separators.
+Format a 10 digit phone string by adding separators and truncating extra digits.
 
 ##### phone
 
