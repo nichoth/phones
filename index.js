@@ -9,7 +9,7 @@ function parse (phone) {
 }
 
 exports.format = function format (phone, separator) {
-  separator = separator == null ? ' ' : separator
+  separator = separator == null ? '-' : separator
 
   var country = phone.charAt(0) === '1'
   phone = phone.substring(0, country ? 11 : 10)

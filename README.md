@@ -50,7 +50,7 @@ A phone number to format. Digits only.
 ##### separator
 
 Type: `string`  
-Default: `' '`
+Default: `'-'`
 
 #### `phones.validate(phone)` -> `boolean`
 
