@@ -5,7 +5,8 @@ var separate = require('separate')
 exports.parse = parse
 function parse (phone) {
   phone = phone.replace(/\D/g, '')
-  return phone.charAt(0) === '1' ? phone.substring(1, phone.length) : phone
+  var offset = Number(phone.charAt(0) === '1')
+  return phone.substring(offset, 10 + offset)
 }
 
 exports.format = function format (phone, separator) {
