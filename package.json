@@ -1,5 +1,5 @@
 {
-  "name": "@nichoth/phones",
+  "name": "telephone-stuff",
   "main": "index.js",
   "version": "3.0.0",
   "description": "Parse, format, and validate US phone numbers",
