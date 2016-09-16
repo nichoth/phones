@@ -1,7 +1,7 @@
 {
   "name": "telephone-stuff",
   "main": "index.js",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Parse, format, and validate US phone numbers",
   "license": "MIT",
   "repository": "nichoth/phones",
