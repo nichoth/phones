@@ -1,7 +1,7 @@
 {
   "name": "@nichoth/phones",
   "main": "index.js",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Parse, format, and validate US phone numbers",
   "license": "MIT",
   "repository": "nichoth/phones",
