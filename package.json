@@ -1,23 +1,28 @@
 {
-  "name": "phones",
+  "name": "@nichoth/phones",
   "main": "index.js",
   "version": "2.0.1",
   "description": "Parse, format, and validate US phone numbers",
   "license": "MIT",
-  "repository": "bendrucker/phones",
+  "repository": "nichoth/phones",
   "author": {
     "name": "Ben Drucker",
     "email": "bvdrucker@gmail.com",
     "url": "bendrucker.me"
   },
   "scripts": {
+    "preversion": "npm test",
+    "postversion": "git push && git push --tags && npm publish",
     "test": "standard && tape test.js"
   },
   "keywords": [
     "phone",
     "phones",
     "us",
-    "american"
+    "american",
+    "parse",
+    "format",
+    "validate"
   ],
   "devDependencies": {
     "tape": "^4.0.0",
@@ -27,6 +32,6 @@
     "index.js"
   ],
   "dependencies": {
-    "separate": "~1.0.0"
+    "separate": "1.0.0"
   }
 }
