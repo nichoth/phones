@@ -1,4 +1,4 @@
-# phones [![Build Status](https://travis-ci.org/bendrucker/phones.svg?branch=master)](https://travis-ci.org/bendrucker/phones)
+# phones 
 
 > Parse, format, and validate US phone numbers
 
@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ npm install --save phones
+$ npm install telephone-stuff
 ```
 
 
@@ -15,13 +15,19 @@ $ npm install --save phones
 ```js
 var phones = require('phones')
 
-phones.parse('415-555-1234')
+phones.parse('415-555-12345')
 //=> 4155551234
 
-phones.format('4155551234')
-//=> 415 555 1234
+phones.parse('123-123-12345', { truncate: false })
+//=> 12312312345
 
-phones.validate('4155551234')
+phones.format('4155551234')
+//=> 415-555-1234
+
+phones.format('1231231234', '.')
+//=> 123.123.1234
+
+phones.validate('1231231234')
 //=> true
 ```
 
@@ -53,6 +59,7 @@ Type: `string`
 Default: `'-'`
 
 #### `phones.validate(phone)` -> `boolean`
+Returns false if `phone` is not a string with exactly 10 digits.
 
 #### phone
 
@@ -61,6 +68,6 @@ Type: `string`
 
 A phone number to validate as a 10 digit string.
 
-## License
+-------------
 
-MIT © [Ben Drucker](http://bendrucker.me)
+Forked from bendrucker/phones
