@@ -8,6 +8,8 @@ test('parse', function (t) {
   t.equal(parse('415-555-1234'), '4155551234')
   t.equal(parse('+1-415-555-1234'), '4155551234')
   t.equal(parse('415-555-12349'), '4155551234', 'truncate')
+  t.equal(parse('1234567891234', {truncate: false}), '1234567891234',
+    'dont truncate')
   t.end()
 })
 
