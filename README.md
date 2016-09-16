@@ -1,4 +1,4 @@
-# phones 
+# telephone stuff 
 
 > Parse, format, and validate US phone numbers
 
