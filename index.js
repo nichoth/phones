@@ -3,8 +3,11 @@
 var separate = require('separate')
 
 exports.parse = parse
-function parse (phone) {
+function parse (phone, opts) {
+  opts = opts || {}
+  opts.truncate = opts.truncate === undefined ? true : opts.truncate
   phone = phone.replace(/\D/g, '')
+  if (!opts.truncate) return phone
   var offset = Number(phone.charAt(0) === '1')
   return phone.substring(offset, 10 + offset)
 }
