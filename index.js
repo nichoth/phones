@@ -24,5 +24,5 @@ exports.format = function format (phone, separator) {
 }
 
 exports.validate = function validate (phone) {
-  return /\d{10}/.test(phone)
+  return /^\d{10}$/.test(phone)
 }

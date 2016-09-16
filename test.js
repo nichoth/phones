@@ -29,5 +29,6 @@ test('validate', function (t) {
   var validate = phone.validate
   t.ok(validate('4155551234'))
   t.notOk(validate('415-555-1235'))
+  t.notOk(validate('12345678901'), 'more than 10 digits is invalid')
   t.end()
 })
