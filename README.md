@@ -13,7 +13,7 @@ $ npm install telephone-stuff
 ## Usage
 
 ```js
-var phones = require('phones')
+var phones = require('telephone-stuff')
 
 phones.parse('415-555-12345')
 //=> 4155551234
