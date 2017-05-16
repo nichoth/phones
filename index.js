@@ -6,6 +6,7 @@ exports.parse = parse
 function parse (phone, opts) {
   opts = opts || {}
   opts.truncate = opts.truncate === undefined ? true : opts.truncate
+  phone = phone || ''
   phone = phone.replace(/\D/g, '')
   if (!opts.truncate) return phone
   var offset = Number(phone.charAt(0) === '1')
